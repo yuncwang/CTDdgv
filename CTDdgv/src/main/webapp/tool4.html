@@ -1,0 +1,412 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="language" content="en" />
+    <meta name="author" content="CTDdgv" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>CTDdgv</title>
+    <link rel="shortcut icon" href="IMAGE/c.png" type="image/x-icon">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/sweetalert.css" rel="stylesheet">
+    <script src="js/sweetalert.js"></script>
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/pattern.css" rel="stylesheet">
+    <script src="js/aos.js"></script>
+    <link rel="stylesheet" href="css/nice-select.css">
+    <script src="js/jquery.nice-select.js"></script>
+    <script src="js/swiper-bundle.js"></script>
+    <script src="js/D3.V5.min.js"></script>
+    <script src="js/venn.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/jspdf.umd.min.js"></script>
+    <!--    custom      -->
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/tools.css" rel="stylesheet">
+    <script src="js/index.js"></script>
+    <script src="js/Driver_gene.js"></script>
+    <!--    autocomplete    -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-autocomplete.js"></script>
+    <script src="js/tools_autocomplete.js"></script>
+    <style>
+        .dropdown-menu, .dropdown-menu li a{
+            font-family: "Gill Sans", sans-serif;
+            background-color: #599a94;
+            font-size: 1.3rem;
+            color: #e8e8e8 ;
+            font-weight: 600;
+        }
+        .dropdown-menu{
+            border-color: #3E6C6F;
+            border-width: 1px;
+            -webkit-transition: all 0.5s ease-in;
+            -moz-transition: all 0.5s ease-in;
+            -ms-transition: all 0.5s ease-in;
+            -o-transition: all 0.5s ease-in;
+            transition: all 0.5s ease-in;
+        }
+        .dropdown-menu a:hover{
+            color: #3E6C6F !important;
+            background-color: aliceblue !important;
+        }
+        .transp {
+            background-color:transparent;
+            transition: background-color 1.5s;
+        }
+        .notransp{
+            background-image: url(IMAGE/non_index.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: background-color 1.5s;
+        }
+        .venntooltip {
+            position: absolute;
+            text-align: center;
+            width: 128px;
+            height: 16px;
+            background: #333;
+            color: #ddd;
+            padding: 2px;
+            border: 0px;
+            border-radius: 8px;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .inside{
+            border: none;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; overflow-x: hidden;">
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <!-- nav start  -->
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <nav class="navbar navbar-default navbar-fixed-top" style="background-image:url(IMAGE/non_index.svg);background-repeat: no-repeat;  background-size: cover;border-color:transparent;" id="navigation" role="navigation">
+                        <div style="width: 50%; height: 100px; position: absolute;"><a href="index.html"><img src="IMAGE/logo.svg" style="position:relative;width:50%;height:90%; display: inline-block;"></a></div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent !important;">Curation<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="search_mo.html">Variant-orient(VL)</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="search_fo_ml.html">Function-orient(VL)</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="search_go.html">Gene-orient(GL)</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="search_fo_gl.html">Function-orient(GL)</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="curation.html">Search</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent !important;">Tools<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="tool1.html">geMERlb</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool2.html">CTDdgv-overlap</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool3.html">CTDdgv-function</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool4.html" class="active">CTDdgv-survival</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool5.html">CTDdgv-expression</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="jbrowse.html">Genome Browser</a>
+                                </li>
+                                <li>
+                                    <a href="download.html">Download</a>
+                                </li>
+                                <li>
+                                    <a href="submitdata.html">Submit data</a>
+                                </li>
+                                <li>
+                                    <a href="helps.html">Help</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- tools main   -->
+            <div class="row clearfix shift_down">
+                <div class="col-md-12 column">
+                    <div id="content" class="tbox">
+                        <!--      遮罩，分析提示框等辅块     -->
+                        <div>
+                            <div id="center">
+                                <p id="analyse_tip">Waiting...</p>
+                                <div class="center">
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                </div>
+                            </div>
+
+                            <div id="overlay" class="overlay"></div>
+                            <iframe style="width: 50%;height: 300px;" frameborder="0" name="iframeName" hidden="hidden"></iframe>
+                        </div>
+                        <!--      分析主块     -->
+                        <div id="tools_head">
+                            <h3 class="pattern-diagonal-stripes-sm text-pattern" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1000">CTDdgv-Survival</h3>
+                            <div class="pattern-diagonal-stripes-sm stripe"></div>
+                            <p><span class="number">1. </span><span class="emphasis">CTDdgv-Survival</span> module offers a tool to explore the prognostic significance of identified driver genes in ctDNA and tissue.</p>
+                            <a href="helps.html#help3_4_6"><img id="wenhao" src="IMAGE/wenhao.png"></a>
+                            <div class="pattern-diagonal-stripes-sm stripe"></div>
+                        </div>
+                        <div id="forbid_click" class="file-submit" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000">
+                            <div class="part_search">
+                                <div class="outside">
+                                    <div class="inside">
+                                        <div class="row clearfix">
+                                            <div class="col-md-12 column">
+                                                <div class="row clearfix">
+                                                    <div class="col-md-12 column grap_input_div">
+                                                        <div class="col-md-5 column">
+                                                            <p style="font-weight: 600">Disease type:</p>
+                                                            <input type="text" id="disease_type" class="input-style left_retract" style="width: 80%; border: 3px solid #9abcbf;box-shadow: none;height: 50px;margin-left: 50px;" placeholder="enter disease type">
+                                                            <p style="font-size: 1.2rem;margin-left: 50px;">Example: <a onclick="fill_disease1()">"Hepatocellular Carcinoma"</a> &nbsp <a onclick="fill_disease2()">"Cholangiocarcinoma"</a></p>
+                                                        </div>
+                                                        <div class="col-md-5 column">
+                                                            <p style="font-weight: 600">Driver gene:</p>
+                                                            <input type="text" id="driver_gene" class="input-style left_retract" style="width: 80%; border: 3px solid #9abcbf;box-shadow: none;height: 50px;margin-left: 50px;" placeholder="Enter genes">
+                                                            <p style="font-size: 1.2rem;margin-left: 50px;">Example: <a onclick="fill_gene1()">"TP53"</a>&nbsp <a onclick="fill_gene2()">"EGFR"</a></p>
+                                                        </div>
+                                                        <div class="col-md-2 column">
+                                                            <button class="sub_button" onclick="submit()" style="top: 0; left: 0"><span class="transition"></span><span class="gradient"></span><span class="label">Submit</span></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h3 id="show_disease" class="show_disease" style="padding: 25px 0 25px 0;border-top: 1px solid #a6a9ac;width: 90%; margin: 10px 0 10px 5%;">LUNG CANCER</h3>
+                                                </div>
+                                                <div class="row clearfix">
+                                                    <div class="col-md-12 column">
+                                                        <div class="col-md-6 column">
+                                                            <h3 class="graph_title">ctDNA</h3>
+                                                            <div class="auxiliary_tools">
+                                                                <a id="ct-download" style="color: #6b7c8a" href="#" download><button onclick="">Download PNG</button></a>
+                                                            </div>
+                                                            <div id="ct-survival" style="padding-bottom: 40px; overflow: visible"></div>
+                                                        </div>
+                                                        <div class="col-md-6 column">
+                                                            <h3 class="graph_title">TCGA-tissue</h3>
+                                                            <div class="auxiliary_tools">
+                                                                <a id="tissue-download" style="color: #6b7c8a" href="#" download><button onclick="">Download PNG</button></a>
+                                                            </div>
+                                                            <div id="tissue-survival" style="padding-bottom: 40px; overflow: visible"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer  -->
+            <div class="row clearfix shift_down_foot">
+                <div class="col-md-12 column" style="margin: 0; padding: 0;">
+                    <div class="foot">© College of Bioinformatics Science and Technology, Harbin Medical University, Harbin, China.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //分析时禁止用户操作及加半透明遮罩层
+    const targetDiv = document.getElementById('forbid_click');
+
+    // 禁止目标div内所有子元素的交互
+    function disableDivChildren() {
+        //分析进行中提醒
+        //const analyse_tip = document.getElementById('analyse_tip');
+        //analyse_tip.style.display = "block";
+        //遮罩层
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'block';
+        //块型加载框
+        const center = document.getElementById('center');
+        center.style.display = 'block';
+        //元素不可点击状态切换
+        const children = targetDiv.children;
+        for (let i = 0; i < children.length; i++) {
+            children[i].style.pointerEvents = 'none';
+        }
+    }
+
+    // 允许目标div内所有子元素的交互
+    function enableDivChildren() {
+        //隐藏分析中提醒
+        //const analyse_tip = document.getElementById('analyse_tip');
+        //analyse_tip.style.display = "none";
+        //遮罩层
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'none';
+        //块型加载框
+        const center = document.getElementById('center');
+        center.style.display = 'none';
+        //元素不可点击切换
+        const children = targetDiv.children;
+        for (let i = 0; i < children.length; i++) {
+            children[i].style.pointerEvents = 'auto';
+        }
+    }
+
+    //初始内容
+    window.onload = function() {
+        document.getElementById('disease_type').value = 'Lung Cancer';
+        document.getElementById('driver_gene').value = 'TP53';
+        document.getElementById('show_disease').textContent = 'Lung Cancer TP53'
+        disableDivChildren();
+        const disease_init = document.getElementById("disease_type").value;
+        const gene_init = document.getElementById("driver_gene").value;
+        setTimeout(function() {
+            $("#ct-survival").empty().append("<img style='width: 600px;height: 500px; margin-top: 40px; margin-bottom: 90px; margin-left: 150px; -webkit-box-shadow: 2px 4px 11px #737373; -moz-box-shadow: 2px 4px 11px #737373;' src='tool_survival/ctDNA/ctDNA_" + disease_init + "_" + gene_init + ".PNG'>");
+            $("#tissue-survival").empty().append("<img style='width: 600px;height: 500px; margin-top: 40px; margin-bottom: 90px; margin-left: 150px; -webkit-box-shadow: 2px 4px 11px #737373; -moz-box-shadow: 2px 4px 11px #737373;' src='tool_survival/tissue/TCGA_" + disease_init + "_" + gene_init + ".png'>");
+            document.getElementById('ct-download').href = "tool_survival/ctDNA/ctDNA_"+disease_init+"_"+gene_init+".PNG";
+            document.getElementById('tissue-download').href = "tool_survival/tissue/TCGA_"+disease_init+"_"+gene_init+".png";
+            enableDivChildren();
+        }, 3000);
+    }
+    AOS.init({
+        once:true,
+    });
+    function submit(){
+        disableDivChildren();
+        const disease = document.getElementById("disease_type").value;
+        const gene = document.getElementById("driver_gene").value;
+        submitForm();
+        // 改变下载
+        document.getElementById('ct-download').href = "tool_survival/ctDNA/ctDNA_"+disease+"_"+gene+".PNG";
+        document.getElementById('tissue-download').href = "tool_survival/tissue/TCGA_"+disease+"_"+gene+".png";
+
+
+    }
+
+    function submitForm() {
+        // 创建FormData对象
+        var formData = new FormData();
+        // 将文件添加到FormData对象中
+        var disease_type = $('input[id="disease_type"]').val();
+        var driver_gene = $('input[id="driver_gene"]').val();
+        formData.append('disease_type', disease_type);
+        formData.append('driver_gene', driver_gene);
+        // 打印FormData对象的内容
+        // 发送Ajax请求
+        debugger
+        $.ajax({
+            url: "tool4_survival",
+            type: 'POST',
+            data: formData,
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                console.log("返回成功");
+                switch (response.state) {
+                    case "100":
+                        const disease = document.getElementById("disease_type").value;
+                        const gene = document.getElementById("driver_gene").value;
+                        console.log(response.state + ":" + response.message);
+                        $("#ct-survival").empty().append("<img style='width: 600px;height: 500px; margin-top: 40px; margin-bottom: 90px; margin-left: 150px; -webkit-box-shadow: 2px 4px 11px #737373; -moz-box-shadow: 2px 4px 11px #737373;' src='tool_survival/ctDNA/ctDNA_" + disease + "_" + gene + ".PNG'>");
+                        $("#tissue-survival").empty().append("<img style='width: 600px;height: 500px; margin-top: 40px; margin-bottom: 90px; margin-left: 150px; -webkit-box-shadow: 2px 4px 11px #737373; -moz-box-shadow: 2px 4px 11px #737373;' src='tool_survival/tissue/TCGA_" + disease + "_" + gene + ".png'>");
+                        document.getElementById('show_disease').textContent = disease + " " + gene;
+                        enableDivChildren();
+                        break; // 添加 break，避免继续执行下一个 case
+
+                    case "104":
+                        console.log(response.state + ":" + response.message);
+                        enableDivChildren();
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: "Result is null.",
+                        })
+                        break; // 添加 break，避免继续执行下一个 case
+
+                    default:
+                        console.log("Unknown state:", response.state);
+                        enableDivChildren();
+                }
+            },
+            error: function(xhr, status, error) {
+                // 请求失败处理逻辑
+                console.log("失败");
+                enableDivChildren();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: "Submission failed",
+                })
+            }
+        });
+
+    }
+
+
+    function fill_disease1(){
+        document.getElementById("disease_type").value = "Hepatocellular Carcinoma";
+    }
+    function fill_disease2(){
+        document.getElementById("disease_type").value = "Cholangiocarcinoma";
+    }
+    function fill_gene1(){
+        document.getElementById("driver_gene").value = 'TP53';
+    }
+    function fill_gene2(){
+        document.getElementById("driver_gene").value = 'EGFR';
+    }
+
+</script>
+
+</body>
+</html>

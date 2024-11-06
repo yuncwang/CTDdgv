@@ -1,0 +1,688 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="language" content="en" />
+    <meta name="author" content="CTDdgv" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>CTDdgv</title>
+    <link rel="shortcut icon" href="IMAGE/c.png" type="image/x-icon">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/sweetalert.css" rel="stylesheet">
+    <script src="js/sweetalert.js"></script>
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/pattern.css" rel="stylesheet">
+    <script src="js/aos.js"></script>
+    <link rel="stylesheet" href="css/nice-select.css">
+    <script src="js/jquery.nice-select.js"></script>
+    <script src="js/swiper-bundle.js"></script>
+    <script src="js/D3.V5.min.js"></script>
+    <script src="js/venn.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/jspdf.umd.min.js"></script>
+    <!--    custom      -->
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/tools.css" rel="stylesheet">
+    <script src="js/index.js"></script>
+    <script src="js/Driver_gene.js"></script>
+    <!--    autocomplete    -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-autocomplete.js"></script>
+    <script src="js/tools_autocomplete.js"></script>
+    <style>
+        .dropdown-menu, .dropdown-menu li a{
+            font-family: "Gill Sans", sans-serif;
+            background-color: #599a94;
+            font-size: 1.3rem;
+            color: #e8e8e8 ;
+            font-weight: 600;
+        }
+        .dropdown-menu{
+            border-color: #3E6C6F;
+            border-width: 1px;
+            -webkit-transition: all 0.5s ease-in;
+            -moz-transition: all 0.5s ease-in;
+            -ms-transition: all 0.5s ease-in;
+            -o-transition: all 0.5s ease-in;
+            transition: all 0.5s ease-in;
+        }
+        .dropdown-menu a:hover{
+            color: #3E6C6F !important;
+            background-color: aliceblue !important;
+        }
+        .transp {
+            background-color:transparent;
+            transition: background-color 1.5s;
+        }
+        .notransp{
+            background-image: url(IMAGE/non_index.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: background-color 1.5s;
+        }
+        .venntooltip {
+            position: absolute;
+            text-align: center;
+            width: 128px;
+            height: 16px;
+            background: #333;
+            color: #ddd;
+            padding: 2px;
+            border: 0px;
+            border-radius: 8px;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .inside{
+            border: none;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; overflow-x: hidden;">
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <!-- nav start  -->
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <nav class="navbar navbar-default navbar-fixed-top" style="background-image:url(IMAGE/non_index.svg);background-repeat: no-repeat;  background-size: cover;border-color:transparent;" id="navigation" role="navigation">
+                        <div style="width: 50%; height: 100px; position: absolute;"><a href="index.html"><img src="IMAGE/logo.svg" style="position:relative;width:50%;height:90%; display: inline-block;"></a></div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent !important;">Curation<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="search_mo.html">Variant-orient(VL)</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="search_fo_ml.html">Function-orient(VL)</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="search_go.html">Gene-orient(GL)</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="search_fo_gl.html">Function-orient(GL)</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="curation.html">Search</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent !important;">Tools<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="tool1.html">geMERlb</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool2.html" class="active">CTDdgv-overlap</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool3.html">CTDdgv-function</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool4.html">CTDdgv-survival</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool5.html">CTDdgv-expression</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="jbrowse.html">Genome Browser</a>
+                                </li>
+                                <li>
+                                    <a href="download.html">Download</a>
+                                </li>
+                                <li>
+                                    <a href="submitdata.html">Submit data</a>
+                                </li>
+                                <li>
+                                    <a href="helps.html">Help</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- tools main   -->
+            <div class="row clearfix shift_down">
+                <div class="col-md-12 column">
+                    <div id="content" class="tbox">
+                        <!--      遮罩，分析提示框等辅块     -->
+                        <div>
+                            <div id="center">
+                                <p id="analyse_tip">Waiting...</p>
+                                <div class="center">
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                </div>
+                            </div>
+
+                            <div id="overlay" class="overlay"></div>
+                            <iframe style="width: 50%;height: 300px;" frameborder="0" name="iframeName" hidden="hidden"></iframe>
+                        </div>
+                        <!--      分析主块     -->
+                        <div id="tools_head">
+                            <h3 class="pattern-diagonal-stripes-sm text-pattern" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1000">CTDdgv-overlap</h3>
+                            <div class="pattern-diagonal-stripes-sm stripe"></div>
+                            <p><span class="number">1. </span><span class="emphasis">CTDdgv-overlap</span> allows users to explore the overlap between novel identified driver genes and pre-identified driver gene sets, as well as their association with the ten cancer hallmarks.</p>
+                            <a href="helps.html#help3_4_4"><img id="wenhao" src="IMAGE/wenhao.png"></a>
+                            <div class="pattern-diagonal-stripes-sm stripe"></div>
+                        </div>
+                        <div id="forbid_click" class="file-submit" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000">
+                            <div class="part_search">
+                                <div class="outside">
+                                    <div class="inside">
+                                        <div class="row clearfix">
+                                            <div class="col-md-12 column">
+                                                <div class="row clearfix">
+                                                    <div class="col-md-12 column grap_input_div">
+                                                        <div class="col-md-5 column">
+                                                            <p style="font-weight: 600">Disease type:</p>
+                                                            <input type="text" id="disease_type" class="input-style left_retract" style="width: 80%; border: 3px solid #9abcbf;box-shadow: none;height: 50px;margin-left: 50px;" placeholder="enter disease type">
+                                                            <p style="font-size: 1.2rem;margin-left: 50px;">Example: <a onclick="fill_disease1()">"Hepatocellular Carcinoma"</a> &nbsp <a onclick="fill_disease2()">"Cholangiocarcinoma"</a></p>
+                                                        </div>
+                                                        <div class="col-md-5 column">
+                                                            <p style="font-weight: 600">Driver gene set:</p>
+                                                            <input type="text" id="geneList" class="input-style left_retract" style="width: 80%; border: 3px solid #9abcbf;box-shadow: none;height: 50px;margin-left: 50px;" placeholder="Enter genes separated by commas">
+                                                            <p style="font-size: 1.2rem;margin-left: 50px;">Example: <a onclick="fill_geneset()">"Gene set"</a>
+                                                        </div>
+                                                        <div class="col-md-2 column">
+                                                            <button class="sub_button" onclick="drawVenn()" style="top: 0; left: 0"><span class="transition"></span><span class="gradient"></span><span class="label">Submit</span></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h3 id="show_disease" class="show_disease" style="padding: 25px 0 25px 0;border-top: 1px solid #a6a9ac;width: 90%; margin: 10px 0 10px 5%;">Hepatocellular Carcinoma</h3>
+                                                </div>
+                                                <div class="row clearfix">
+                                                    <div class="col-md-12 column">
+                                                        <div class="col-md-6 column">
+                                                            <div class="graph_title_auxiliary" style="float: right;">
+                                                                <button onclick="downloadDataForVenn1()">Download Data</button>
+                                                                <button onclick="downloadPNG('venn1')">Download PNG</button>
+                                                                <button onclick="downloadSVG('venn1')">Download SVG</button>
+                                                                <button onclick="downloadPDF('venn1')">Download PDF</button>
+                                                            </div>
+                                                            <div id="venn1" style="padding-bottom: 40px; overflow: visible; text-align: center"></div>
+                                                        </div>
+                                                        <div class="col-md-6 column">
+                                                            <div class="graph_title_auxiliary" style="float: right;">
+                                                                <button onclick="downloadDataForVenn2()">Download Data</button>
+                                                                <button onclick="downloadPNG('venn2')">Download PNG</button>
+                                                                <button onclick="downloadSVG('venn2')">Download SVG</button>
+                                                                <button onclick="downloadPDF('venn2')">Download PDF</button>
+                                                            </div>
+                                                            <div id="venn2" style="padding-bottom: 40px; overflow: visible; text-align: center"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer  -->
+            <div class="row clearfix shift_down_foot">
+                <div class="col-md-12 column" style="margin: 0; padding: 0;">
+                    <div class="foot">© College of Bioinformatics Science and Technology, Harbin Medical University, Harbin, China.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //分析时禁止用户操作及加半透明遮罩层
+    const targetDiv = document.getElementById('forbid_click');
+
+    // 禁止目标div内所有子元素的交互
+    function disableDivChildren() {
+        //分析进行中提醒
+        //const analyse_tip = document.getElementById('analyse_tip');
+        //analyse_tip.style.display = "block";
+        //遮罩层
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'block';
+        //块型加载框
+        const center = document.getElementById('center');
+        center.style.display = 'block';
+        //元素不可点击状态切换
+        const children = targetDiv.children;
+        for (let i = 0; i < children.length; i++) {
+            children[i].style.pointerEvents = 'none';
+        }
+    }
+
+    // 允许目标div内所有子元素的交互
+    function enableDivChildren() {
+        //隐藏分析中提醒
+        //const analyse_tip = document.getElementById('analyse_tip');
+        //analyse_tip.style.display = "none";
+        //遮罩层
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'none';
+        //块型加载框
+        const center = document.getElementById('center');
+        center.style.display = 'none';
+        //元素不可点击切换
+        const children = targetDiv.children;
+        for (let i = 0; i < children.length; i++) {
+            children[i].style.pointerEvents = 'auto';
+        }
+    }
+
+    //初始内容
+    window.onload = function() {
+        // Fill the inputs
+        document.getElementById('geneList').value = 'EGFR,CDKN2A,ERBB4,STK11,TP53,ADAMTS20,ALK,CDH18,COL19A1,ERBB2,FBXW7,FGFR2,KRAS,MET,MUC6,NF1,NFE2L2,NOTCH2,NRXN1,ROS1,SMAD4,VPS13A,AKT1,ARID1A,CTNNA2,KMT2C,MAP2K1,AKR1B10,APC,ATM,BRAF,';
+        document.getElementById('disease_type').value = 'Hepatocellular Carcinoma';
+        document.getElementById('show_disease').textContent = 'Hepatocellular Carcinoma'
+        // Execute the drawVenn function
+        drawVenn();
+    }
+    AOS.init({
+        once:true,
+    });
+    function drawVenn(){
+        disableDivChildren();
+        setTimeout(() => {
+            let disease = document.getElementById("disease_type").value;
+            document.getElementById('show_disease').textContent = disease;
+            drawVenn1();
+            drawVenn2() // Call the function after 2 seconds
+            enableDivChildren(); // Optionally re-enable the div after function call
+        }, 2000); // 2000 milliseconds = 2 seconds
+    }
+    function fill_disease1(){
+        document.getElementById("disease_type").value = "Hepatocellular Carcinoma";
+    }
+    function fill_disease2(){
+        document.getElementById("disease_type").value = "Cholangiocarcinoma";
+    }
+    function fill_geneset(){
+        document.getElementById('geneList').value = 'EGFR,CDKN2A,ERBB4,STK11,TP53,ADAMTS20,ALK,CDH18,COL19A1,ERBB2,FBXW7,FGFR2,KRAS,MET,MUC6,NF1,NFE2L2,NOTCH2,NRXN1,ROS1,SMAD4,VPS13A,AKT1,ARID1A,CTNNA2,KMT2C,MAP2K1,AKR1B10,APC,ATM,BRAF,';;
+    }
+    function drawVenn1() {
+        const geneListInput = document.getElementById("geneList").value.trim();
+        const l1 = geneListInput ? geneListInput.split(',').map(g => g.trim()).filter(g => g !== "") : [];
+        let disease = document.getElementById("disease_type").value;
+        const l2 = cfDNA_driver_gene[disease] || [];
+        const l3 = tissue_driver_gene[disease] || [];
+
+        const l1_l2 = l1.filter(x => l2.includes(x));
+        const l1_l3 = l1.filter(x => l3.includes(x));
+        const l2_l3 = l2.filter(x => l3.includes(x));
+        const l1_l2_l3 = l1.filter(x => l2.includes(x) && l3.includes(x));
+
+        const sets1 = [
+            { sets: ['l1'], size: l1.length >= 1 ? Math.log2(l1.length) : l1.length, originalSize: l1.length, label: `Input gene set (${l1.length})` },
+            { sets: ['l2'], size: Math.log2(l2.length), originalSize: l2.length, label: `ctDNA driver gene (${l2.length})` },
+            { sets: ['l3'], size: Math.log2(l3.length), originalSize: l3.length, label: `TCGA tissue driver gene (${l3.length})` },
+            { sets: ['l1', 'l2'], size: l1_l2.length >= 1 ? Math.log2(l1_l2.length) : l1_l2.length, originalSize: l1_l2.length, label: `${l1_l2.length}` },
+            { sets: ['l1', 'l3'], size: l1_l3.length >= 1 ? Math.log2(l1_l3.length) : l1_l3.length, originalSize: l1_l3.length, label: `${l1_l3.length}` },
+            { sets: ['l2', 'l3'], size: l2_l3.length >= 1 ? Math.log2(l2_l3.length) : l2_l3.length, originalSize: l2_l3.length, label: `${l2_l3.length}` },
+            { sets: ['l1', 'l2', 'l3'], size: l1_l2_l3.length >= 1 ? Math.log2(l1_l2_l3.length) : l1_l2_l3.length, originalSize: l1_l2_l3.length, label: `${l1_l2_l3.length}` },
+        ];
+
+        drawVennDiagram("#venn1", sets1, { l1: '#c0d5d0', l2: '#74a89b', l3: '#30715c' });
+    }
+
+    // Second Venn Diagram: Input gene set with hallmark gene sets
+    function drawVenn2() {
+        const geneListInput = document.getElementById("geneList").value.trim();
+        const l = geneListInput ? geneListInput.split(',').map(g => g.trim()).filter(g => g !== "") : [];
+        const l1 = cancer_hallmarker_gene["Self_Sufficiency_in_Growth_Signals"] || [];
+        const l2 = cancer_hallmarker_gene["Insensitivity_to_Antigrowth_Signals"] || [];
+        const l3 = cancer_hallmarker_gene["Evading_Apoptosis"] || [];
+        const l4 = cancer_hallmarker_gene["Limitless_Replicative_Potential"] || [];
+        const l5 = cancer_hallmarker_gene["Sustained_Angiogenesis"] || [];
+        const l6 = cancer_hallmarker_gene["Tissue_Invasion_and_Metastasis"] || [];
+        const l7 = cancer_hallmarker_gene["Genome_Instability_and_Mutation"] || [];
+        const l8 = cancer_hallmarker_gene["Tumor_Promoting_Inflammation"] || [];
+        const l9 = cancer_hallmarker_gene["Reprogramming_Energy_Metabolism"] || [];
+        const l10 = cancer_hallmarker_gene["Evading_Immune_Detection"] || [];
+
+        // 筛选出同时存在于 l 和各个 l1-l10 的基因
+        const l_l1 = l.filter(x => l1.includes(x));
+        const l_l2 = l.filter(x => l2.includes(x));
+        const l_l3 = l.filter(x => l3.includes(x));
+        const l_l4 = l.filter(x => l4.includes(x));
+        const l_l5 = l.filter(x => l5.includes(x));
+        const l_l6 = l.filter(x => l6.includes(x));
+        const l_l7 = l.filter(x => l7.includes(x));
+        const l_l8 = l.filter(x => l8.includes(x));
+        const l_l9 = l.filter(x => l9.includes(x));
+        const l_l10 = l.filter(x => l10.includes(x));
+
+        // 定义数据集
+        function log3(x) {
+            return Math.log(x) / Math.log(3);
+        }
+        const sets2 = [
+            { sets: ['l'], size: l.length >= 1 ? Math.log2(l.length)+45 : l.length, originalSize: l.length, label: `Input gene set (${l.length})` },
+            { sets: ['l1'], size: Math.log2(l1.length), originalSize: l1.length, label: `Self_Sufficiency_in_Growth_Signals (${l1.length})` },
+            { sets: ['l2'], size: Math.log2(l2.length), originalSize: l2.length, label: `Insensitivity_to_Antigrowth_Signals (${l2.length})` },
+            { sets: ['l3'], size: Math.log2(l3.length), originalSize: l3.length, label: `Evading_Apoptosis (${l3.length})` },
+            { sets: ['l4'], size: Math.log2(l4.length), originalSize: l4.length, label: `Limitless_Replicative_Potential (${l4.length})` },
+            { sets: ['l5'], size: Math.log2(l5.length), originalSize: l5.length, label: `Sustained_Angiogenesis (${l5.length})` },
+            { sets: ['l6'], size: Math.log2(l6.length), originalSize: l6.length, label: `Tissue_Invasion_and_Metastasis (${l6.length})` },
+            { sets: ['l7'], size: Math.log2(l7.length), originalSize: l7.length, label: `Genome_Instability_and_Mutation (${l7.length})` },
+            { sets: ['l8'], size: Math.log2(l8.length), originalSize: l8.length, label: `Tumor_Promoting_Inflammation (${l8.length})` },
+            { sets: ['l9'], size: Math.log2(l9.length), originalSize: l9.length, label: `Reprogramming_Energy_Metabolism (${l9.length})` },
+            { sets: ['l10'], size: Math.log2(l10.length), originalSize: l10.length, label: `Evading_Immune_Detection (${l10.length})` },
+            { sets: ['l', 'l1'], size: l_l1.length >= 1 ? log3(l_l1.length) : l_l1.length, originalSize: l_l1.length, label: `${l_l1.length}` },
+            { sets: ['l', 'l2'], size: l_l2.length >= 1 ? log3(l_l2.length) : l_l2.length, originalSize: l_l2.length, label: `${l_l2.length}` },
+            { sets: ['l', 'l3'], size: l_l3.length >= 1 ? log3(l_l3.length) : l_l3.length, originalSize: l_l3.length, label: `${l_l3.length}` },
+            { sets: ['l', 'l4'], size: l_l4.length >= 1 ? log3(l_l4.length) : l_l4.length, originalSize: l_l4.length, label: `${l_l4.length}` },
+            { sets: ['l', 'l5'], size: l_l5.length >= 1 ? log3(l_l5.length) : l_l5.length, originalSize: l_l5.length, label: `${l_l5.length}` },
+            { sets: ['l', 'l6'], size: l_l6.length >= 1 ? log3(l_l6.length) : l_l6.length, originalSize: l_l6.length, label: `${l_l6.length}` },
+            { sets: ['l', 'l7'], size: l_l7.length >= 1 ? log3(l_l7.length) : l_l7.length, originalSize: l_l7.length, label: `${l_l7.length}` },
+            { sets: ['l', 'l8'], size: l_l8.length >= 1 ? log3(l_l8.length) : l_l8.length, originalSize: l_l8.length, label: `${l_l8.length}` },
+            { sets: ['l', 'l9'], size: l_l9.length >= 1 ? log3(l_l9.length) : l_l9.length, originalSize: l_l9.length, label: `${l_l9.length}` },
+            { sets: ['l', 'l10'], size: l_l10.length >= 1 ? log3(l_l10.length) : l_l10.length, originalSize: l_l10.length, label: `${l_l10.length}` }
+        ];
+
+        // 生成颜色映射 { l1: '#3d5a80', l2: '#83c5be', l3: '#dcc9a4' }
+        /* const colors = d3.schemeCategory10.reduce((acc, color, index) => {
+             acc[`l${index + 1}`] = color;
+             return acc;
+         }, {});*/
+        // 绘制Venn图
+        drawVennDiagram("#venn2", sets2, {l: 'rgb(197, 216, 212)', l1: 'rgb(69, 95, 128)', l2: 'rgb(76, 139, 166)', l3: 'rgb(117, 172, 221)', l4: 'rgb(118, 186, 203)', l5: 'rgb(207, 232, 209)', l6: 'rgb(229, 228, 228)', l7: 'rgb(222, 160, 143)', l8: 'rgb(216, 142, 121)', l9: 'rgb(211, 184, 145)', l10: 'rgb(42, 110, 119)'});
+    }
+
+    function drawVennDiagram(container, sets, colors) {
+        // 清空容器
+        d3.select(container).selectAll("*").remove();
+
+        // 定义宽度和高度
+        const width = 600;
+        const height = 500;
+        const margin = 30; // 定义margin
+
+        // 创建一个 SVG 容器，并设置 margin
+        const svg = d3.select(container).append("svg")
+            .attr("width", width + 2 * margin)
+            .attr("height", height + 2 * margin)
+            .attr("class", 'graph_box_shadow')
+            .append("g") // 添加一个 g 元素，g 元素用于平移Venn图
+            .attr("transform", `translate(${margin},${margin})`);
+
+        // 创建白色背景矩形
+        svg.append("rect")
+            .attr("width", width)
+            .attr("height", height)
+            .style("fill", "white");  // 背景为白色
+
+        // 创建Venn图
+        const chart = venn.VennDiagram().width(width).height(height);
+        const diagram = svg.datum(sets).call(chart);
+
+        // 设置初始透明度：单集合较高，交集较低
+        diagram.selectAll("path")
+            .style("fill-opacity", d => d.sets.length === 1 ? 0.5 : 0.0) // 单集合0.3，交集0.15
+            .style("stroke-opacity", 0)
+            .style("stroke", "#ffffff")
+            .style("stroke-width", 3);
+        // 设置单独集的填充颜色
+        diagram.selectAll("g")
+            .filter(d => d.sets.length === 1)
+            .select("path")
+            .style("fill", d => colors[d.sets[0]]);
+
+        // 创建工具提示
+        var tooltip = d3.select("body").append("div")
+            .attr("class", "venntooltip");
+        // 设置集合名字为黑色
+        diagram.selectAll("text")
+            .style("fill", "#57595d")
+            .style('font-family',"'Montserrat', sans-serif")
+            .style("font-size", "1.1rem")
+        // 鼠标事件
+        diagram.selectAll("g")
+            .on("mouseover", function(d, i) {
+                venn.sortAreas(diagram, d);
+                tooltip.transition().duration(400).style("opacity", .9);
+
+                // 使用 originalSize 如果存在，否则使用 size
+                const size = d.originalSize !== undefined ? d.originalSize : d.size;
+                tooltip.text(size + " genes");
+
+                // 鼠标移入时增加透明度
+                var selection = d3.select(this).transition("tooltip").duration(400);
+                selection.select("path")
+                    .style("fill-opacity", d.sets.length == 1 ? .7 : .15)  // 设置更高的透明度
+                    .style("stroke-opacity", 1);
+            })
+            .on("mousemove", function() {
+                tooltip.style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d, i) {
+                tooltip.transition().duration(400).style("opacity", 0);
+
+                // 鼠标移出时降低透明度
+                var selection = d3.select(this).transition("tooltip").duration(400);
+                selection.select("path")
+                    .style("fill-opacity", d.sets.length == 1 ? .5 : 0.0)  // 设置更低的透明度
+                    .style("stroke-opacity", 0);
+            });
+    }
+
+    // Other functions (downloadData, downloadSVG, downloadPNG, downloadPDF) remain unchanged...
+    // Function to download data as CSV
+    function downloadDataForVenn1() {
+        const geneListInput = document.getElementById("geneList").value.trim();
+        const l1 = geneListInput ? geneListInput.split(',').map(g => g.trim()).filter(g => g !== "") : [];
+        // Get l2 and l3 from localStorage
+        const disease = document.getElementById("disease_type").value;
+        const l2 = cfDNA_driver_gene[disease];
+        const l3 = tissue_driver_gene[disease];
+        // Calculate pairwise intersections
+        const l1_l2 = l1.filter(x => l2.includes(x));
+        const l1_l3 = l1.filter(x => l3.includes(x));
+        const l2_l3 = l2.filter(x => l3.includes(x));
+        // Calculate the three-way intersection
+        const l1_l2_l3 = l1.filter(x => l2.includes(x) && l3.includes(x));
+        const data = [
+            { set: "l1(input gene set)", genes: l1.join(", ") },
+            { set: "l2(ctDNA Driver gene)", genes: l2.join(", ") },
+            { set: "l3(TCGA tissue driver gene)", genes: l3.join(", ") },
+            { set: "l1 and l2", genes: l1_l2.join(", ") },
+            { set: "l1 and l3", genes: l1_l3.join(", ") },
+            { set: "l2 and l3", genes: l2_l3.join(", ") },
+            { set: "l1 and l2 and l3", genes: l1_l2_l3.join(", ") }
+        ];
+
+        const csvContent = "data:text/csv;charset=utf-8," +
+            data.map(e => `${e.set},${e.genes}`).join("\n");
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "venn_data.csv");
+        document.body.appendChild(link);
+
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    function downloadDataForVenn2() {
+        const geneListInput = document.getElementById("geneList").value.trim();
+        const l = geneListInput ? geneListInput.split(',').map(g => g.trim()).filter(g => g !== "") : [];
+
+        const l1 = cancer_hallmarker_gene["Self_Sufficiency_in_Growth_Signals"] || [];
+        const l2 = cancer_hallmarker_gene["Insensitivity_to_Antigrowth_Signals"] || [];
+        const l3 = cancer_hallmarker_gene["Evading_Apoptosis"] || [];
+        const l4 = cancer_hallmarker_gene["Limitless_Replicative_Potential"] || [];
+        const l5 = cancer_hallmarker_gene["Sustained_Angiogenesis"] || [];
+        const l6 = cancer_hallmarker_gene["Tissue_Invasion_and_Metastasis"] || [];
+        const l7 = cancer_hallmarker_gene["Genome_Instability_and_Mutation"] || [];
+        const l8 = cancer_hallmarker_gene["Tumor_Promoting_Inflammation"] || [];
+        const l9 = cancer_hallmarker_gene["Reprogramming_Energy_Metabolism"] || [];
+        const l10 = cancer_hallmarker_gene["Evading_Immune_Detection"] || [];
+
+        // 计算交集
+        const l_l1 = l.filter(x => l1.includes(x));
+        const l_l2 = l.filter(x => l2.includes(x));
+        const l_l3 = l.filter(x => l3.includes(x));
+        const l_l4 = l.filter(x => l4.includes(x));
+        const l_l5 = l.filter(x => l5.includes(x));
+        const l_l6 = l.filter(x => l6.includes(x));
+        const l_l7 = l.filter(x => l7.includes(x));
+        const l_l8 = l.filter(x => l8.includes(x));
+        const l_l9 = l.filter(x => l9.includes(x));
+        const l_l10 = l.filter(x => l10.includes(x));
+
+        // 创建CSV数据
+        const data = [
+            { set: "l (input gene set)", genes: l.join(", ") },
+            { set: "l1 (Self_Sufficiency_in_Growth_Signals)", genes: l1.join(", ") },
+            { set: "l2 (Insensitivity_to_Antigrowth_Signals)", genes: l2.join(", ") },
+            { set: "l3 (Evading_Apoptosis)", genes: l3.join(", ") },
+            { set: "l4 (Limitless_Replicative_Potential)", genes: l4.join(", ") },
+            { set: "l5 (Sustained_Angiogenesis)", genes: l5.join(", ") },
+            { set: "l6 (Tissue_Invasion_and_Metastasis)", genes: l6.join(", ") },
+            { set: "l7 (Genome_Instability_and_Mutation)", genes: l7.join(", ") },
+            { set: "l8 (Tumor_Promoting_Inflammation)", genes: l8.join(", ") },
+            { set: "l9 (Reprogramming_Energy_Metabolism)", genes: l9.join(", ") },
+            { set: "l10 (Evading_Immune_Detection)", genes: l10.join(", ") },
+            { set: "l and l1", genes: l_l1.join(", ") },
+            { set: "l and l2", genes: l_l2.join(", ") },
+            { set: "l and l3", genes: l_l3.join(", ") },
+            { set: "l and l4", genes: l_l4.join(", ") },
+            { set: "l and l5", genes: l_l5.join(", ") },
+            { set: "l and l6", genes: l_l6.join(", ") },
+            { set: "l and l7", genes: l_l7.join(", ") },
+            { set: "l and l8", genes: l_l8.join(", ") },
+            { set: "l and l9", genes: l_l9.join(", ") },
+            { set: "l and l10", genes: l_l10.join(", ") }
+        ];
+
+        // 导出CSV
+        const csvContent = "data:text/csv;charset=utf-8," +
+            data.map(e => `${e.set},${e.genes}`).join("\n");
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "venn2_data.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+
+
+
+
+
+    // Function to download the Venn diagram as SVG
+    function downloadSVG(vennId) {
+        const svgElement = document.querySelector(`#${vennId} svg`);
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svgElement);
+        const blob = new Blob([svgString], {type: "image/svg+xml"});
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "venn_diagram.svg";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(url);
+    }
+
+    // Function to download the Venn diagram as PNG
+    function downloadPNG(vennId) {
+        const svgElement = document.querySelector(`#${vennId} svg`);
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svgElement);
+
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const img = new Image();
+
+        const svgData = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgString)));
+        img.src = svgData;
+
+        img.onload = function() {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+
+            const pngFile = canvas.toDataURL("image/png");
+
+            const link = document.createElement("a");
+            link.download = "venn_diagram.png";
+            link.href = pngFile;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+    }
+
+
+    async function downloadPDF(vennId) {
+        const { jsPDF } = window.jspdf;
+
+        // Capture the Venn diagram as a canvas
+        const vennElement = document.querySelector(`#${vennId}`);
+        const canvas = await html2canvas(vennElement);
+
+        // Convert the canvas to an image
+        const imgData = canvas.toDataURL('image/png');
+
+        // Create a PDF document
+        const pdf = new jsPDF({
+            orientation: 'landscape', // 横向
+            unit: 'pt', // 单位
+            format: [canvas.width, canvas.height] // 尺寸根据图像调整
+        });
+
+        // Add the image to the PDF
+        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+
+        // Download the PDF
+        pdf.save("venn_diagram.pdf");
+    }
+</script>
+
+</body>
+</html>

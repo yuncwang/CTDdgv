@@ -1,0 +1,955 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="language" content="en" />
+    <meta name="author" content="CTDdgv" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>CTDdgv</title>
+    <link rel="shortcut icon" href="IMAGE/c.png" type="image/x-icon">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/sweetalert.css" rel="stylesheet">
+    <script src="js/sweetalert.js"></script>
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/pattern.css" rel="stylesheet">
+    <script src="js/aos.js"></script>
+    <link rel="stylesheet" href="css/nice-select.css">
+    <script src="js/jquery.nice-select.js"></script>
+    <script src="js/swiper-bundle.js"></script>
+    <script src="js/D3.V5.min.js"></script>
+    <script src="js/venn.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/jspdf.umd.min.js"></script>
+    <!--    custom      -->
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/tools.css" rel="stylesheet">
+    <script src="js/index.js"></script>
+    <script src="js/Driver_gene.js"></script>
+    <!--    autocomplete    -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-autocomplete.js"></script>
+    <script src="js/tools_autocomplete.js"></script>
+    <style>
+        .dropdown-menu, .dropdown-menu li a{
+            font-family: "Gill Sans", sans-serif;
+            background-color: #599a94;
+            font-size: 1.3rem;
+            color: #e8e8e8 ;
+            font-weight: 600;
+        }
+        .dropdown-menu{
+            border-color: #3E6C6F;
+            border-width: 1px;
+            -webkit-transition: all 0.5s ease-in;
+            -moz-transition: all 0.5s ease-in;
+            -ms-transition: all 0.5s ease-in;
+            -o-transition: all 0.5s ease-in;
+            transition: all 0.5s ease-in;
+        }
+        .dropdown-menu a:hover{
+            color: #3E6C6F !important;
+            background-color: aliceblue !important;
+        }
+        .transp {
+            background-color:transparent;
+            transition: background-color 1.5s;
+        }
+        .notransp{
+            background-image: url(IMAGE/non_index.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: background-color 1.5s;
+        }
+        .dot {
+            stroke: none;
+            stroke-width: 1px;
+            fill-opacity: 0.8;
+        }
+        .dot:hover {
+            stroke: black;
+            stroke-width: 1px;
+            fill-opacity: 1;
+        }
+        .inside{
+            border: none;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; overflow-x: hidden;">
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <!-- nav start  -->
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <nav class="navbar navbar-default navbar-fixed-top" style="background-image:url(IMAGE/non_index.svg);background-repeat: no-repeat;  background-size: cover;border-color:transparent;" id="navigation" role="navigation">
+                        <div style="width: 50%; height: 100px; position: absolute;"><a href="index.html"><img src="IMAGE/logo.svg" style="position:relative;width:50%;height:90%; display: inline-block;"></a></div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent !important;">Curation<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="search_mo.html">Variant-orient(VL)</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="search_fo_ml.html">Function-orient(VL)</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="search_go.html">Gene-orient(GL)</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="search_fo_gl.html">Function-orient(GL)</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="curation.html">Search</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent !important;">Tools<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="tool1.html">geMERlb</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool2.html">CTDdgv-overlap</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool3.html" class="active">CTDdgv-function</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool4.html">CTDdgv-survival</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="tool5.html">CTDdgv-expression</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="jbrowse.html">Genome Browser</a>
+                                </li>
+                                <li>
+                                    <a href="download.html">Download</a>
+                                </li>
+                                <li>
+                                    <a href="submitdata.html">Submit data</a>
+                                </li>
+                                <li>
+                                    <a href="helps.html">Help</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- tools main   -->
+            <div class="row clearfix shift_down">
+                <div class="col-md-12 column">
+                    <div id="content" class="tbox">
+                        <!--      遮罩，分析提示框等辅块     -->
+                        <div>
+                            <div id="center">
+                                <p id="analyse_tip">Waiting...</p>
+                                <div class="center">
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                </div>
+                            </div>
+
+                            <div id="overlay" class="overlay"></div>
+                            <iframe style="width: 50%;height: 300px;" frameborder="0" name="iframeName" hidden="hidden"></iframe>
+                        </div>
+                        <!--      表单主块     -->
+                        <div id="tools_head">
+                            <h3 class="pattern-diagonal-stripes-sm text-pattern" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1000">CTDdgv-function</h3>
+                            <div class="pattern-diagonal-stripes-sm stripe"></div>
+                            <p><span class="number">1. </span><span class="emphasis">CTDdgv-function</span> allows users to explore the function of identified driver gene sets in ctDNA and tissue based on Gene Ontology (GO) terms and KEGG pathways.</p>
+                            <a href="helps.html#help3_4_5"><img id="wenhao" src="IMAGE/wenhao.png"></a>
+                            <div class="pattern-diagonal-stripes-sm stripe"></div>
+                        </div>
+                        <div id="forbid_click" class="file-submit" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000">
+                            <div class="part_search">
+                                <div class="outside">
+                                    <div class="inside">
+                                        <div class="row clearfix">
+                                            <div class="col-md-12 column">
+                                                <div class="row clearfix">
+                                                    <div class="col-md-12 column grap_input_div">
+                                                        <div class="col-md-5 column">
+                                                            <p style="font-weight: 600">Disease type:</p>
+                                                            <input type="text" id="disease_type" class="input-style left_retract" style="width: 80%; border: 3px solid #9abcbf;box-shadow: none;height: 50px;margin-left: 50px;" placeholder="enter disease type">
+                                                            <p style="font-size: 1.2rem;margin-left: 50px;">Example: <a onclick="fill_disease1()">"Hepatocellular Carcinoma"</a> &nbsp <a onclick="fill_disease2()">"Cholangiocarcinoma"</a></p>
+                                                        </div>
+                                                        <div class="col-md-2 column">
+                                                            <button class="sub_button" onclick="submit()" style="top: 0; left: 0"><span class="transition"></span><span class="gradient"></span><span class="label">Submit</span></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h3 id="show_disease" class="show_disease" style="padding: 25px 0 25px 0;border-top: 1px solid #a6a9ac;width: 90%; margin: 10px 0 10px 5%;">LUNG CANCER</h3>
+                                                </div>
+                                                <div class="row clearfix">
+                                                    <div class="col-md-12 column one_line_graph">
+                                                        <div class="col-md-6 column">
+                                                            <div class="graph_title_auxiliary">
+                                                                <h3 class="graph_title">ctDNA KEGG Pathway</h3>
+                                                                <div class="auxiliary_tools">
+                                                                    <label for="ct-KEGG-selector" class="display-top">Display Top:</label>
+                                                                    <select id="ct-KEGG-selector">
+                                                                        <option value="20">20</option>
+                                                                        <option value="25">25</option>
+                                                                        <option value="35">35</option>
+                                                                    </select>
+                                                                    <a id="ct-KEGG-download" href="#" style="color: #6b7c8a" download><button onclick="">Export Data</button></a>
+                                                                    <button onclick="downloadPNG('#ct-KEGG-dot-plot')">Download PNG</button>
+                                                                    <button onclick="downloadSVG('#ct-KEGG-dot-plot')">Download SVG</button>
+                                                                </div>
+                                                            </div>
+                                                            <div id="ct-KEGG-dot-plot-container"  class="graph_box_shadow" style="width: 750px; height: 720px">
+                                                                <svg id="ct-KEGG-dot-plot" width="750" height="600" style="overflow: visible"></svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 column">
+                                                            <div class="graph_title_auxiliary">
+                                                                <h3 class="graph_title">ctDNA Gene Ontology</h3>
+                                                                <div class="auxiliary_tools">
+                                                                    <label for="ct-GO-selector" class="display-top">Display Top:</label>
+                                                                    <select id="ct-GO-selector">
+                                                                        <option value="20">20</option>
+                                                                        <option value="25">25</option>
+                                                                        <option value="35">35</option>
+                                                                    </select>
+                                                                    <a id="ct-GO-download" href="#" style="color: #6b7c8a;" download><button onclick="">Export Data</button></a>
+                                                                    <button onclick="downloadPNG('#ct-GO-bar-plot')">Download PNG</button>
+                                                                    <button onclick="downloadSVG('#ct-GO-bar-plot')">Download SVG</button>
+                                                                </div>
+                                                            </div>
+                                                            <div id="ct-GO-bar-plot-container" class="graph_box_shadow" style="width: 750px; height: 720px">
+                                                                <svg id="ct-GO-bar-plot" width="750" height="600" style="overflow: visible"></svg>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 column one_line_graph">
+                                                        <div class="col-md-6 column">
+                                                            <div class="graph_title_auxiliary">
+                                                                <h3 class="graph_title">TCGA-tissue KEGG Pathway</h3>
+                                                                <div class="auxiliary_tools">
+                                                                    <label for="tissue-KEGG-selector" class="display-top">Display Top:</label>
+                                                                    <select id="tissue-KEGG-selector">
+                                                                        <option value="20">20</option>
+                                                                        <option value="25">25</option>
+                                                                        <option value="35">35</option>
+                                                                    </select>
+                                                                    <a id="tissue-KEGG-download" style="color: #6b7c8a;" href="#" download><button onclick="">Export Data</button></a>
+                                                                    <button onclick="downloadPNG('#tissue-KEGG-dot-plot')">Download PNG</button>
+                                                                    <button onclick="downloadSVG('#tissue-KEGG-dot-plot')">Download SVG</button>
+                                                                </div>
+                                                            </div>
+                                                            <div id="tissue-KEGG-dot-plot-container" class="graph_box_shadow" style="width: 750px; height: 720px">
+                                                                <svg id="tissue-KEGG-dot-plot" width="750" height="600" style="overflow: visible"></svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 column">
+                                                            <div class="graph_title_auxiliary">
+                                                                <h3 class="graph_title">TCGA-tissue Gene Ontology</h3>
+                                                                <div class="auxiliary_tools">
+                                                                    <label for="tissue-GO-selector" class="display-top">Display Top:</label>
+                                                                    <select id="tissue-GO-selector">
+                                                                        <option value="20">20</option>
+                                                                        <option value="25">25</option>
+                                                                        <option value="35">35</option>
+                                                                    </select>
+                                                                    <a id="tissue-GO-download" href="#" style="color: #6b7c8a;" download><button onclick="">Export Data</button></a>
+                                                                    <button onclick="downloadPNG('#tissue-GO-bar-plot')">Download PNG</button>
+                                                                    <button onclick="downloadSVG('#tissue-GO-bar-plot')">Download SVG</button>
+                                                                </div>
+                                                            </div>
+                                                            <div id="tissue-GO-bar-plot-container" class="graph_box_shadow" style="width: 750px; height: 720px">
+                                                                <svg id="tissue-GO-bar-plot" width="750" height="600" style="overflow: visible"></svg>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer  -->
+            <div class="row clearfix shift_down_foot">
+                <div class="col-md-12 column" style="margin: 0; padding: 0;">
+                    <div class="foot">© College of Bioinformatics Science and Technology, Harbin Medical University, Harbin, China.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    AOS.init({
+        once:true,
+    });
+    window.onload = function() {
+        // Fill the inputs
+        document.getElementById('disease_type').value = 'Lung Cancer';
+        document.getElementById('show_disease').textContent = 'Lung Cancer'
+        // Execute the drawVenn function
+        known_results()
+    }
+    // 禁止目标div内所有子元素的交互
+    function disableDivChildren() {
+        //分析进行中提醒
+        //const analyse_tip = document.getElementById('analyse_tip');
+        //analyse_tip.style.display = "block";
+        //遮罩层
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'block';
+        //块型加载框
+        const center = document.getElementById('center');
+        center.style.display = 'block';
+        //元素不可点击状态切换
+        const children = targetDiv.children;
+        for (let i = 0; i < children.length; i++) {
+            children[i].style.pointerEvents = 'none';
+        }
+    }
+
+    // 允许目标div内所有子元素的交互
+    function enableDivChildren() {
+        //隐藏分析中提醒
+        //const analyse_tip = document.getElementById('analyse_tip');
+        //analyse_tip.style.display = "none";
+        //遮罩层
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'none';
+        //块型加载框
+        const center = document.getElementById('center');
+        center.style.display = 'none';
+        //元素不可点击切换
+        const children = targetDiv.children;
+        for (let i = 0; i < children.length; i++) {
+            children[i].style.pointerEvents = 'auto';
+        }
+    }
+
+    function submit(){
+        disableDivChildren();
+        setTimeout(() => {
+            const disease = document.getElementById("disease_type").value;
+            document.getElementById('show_disease').textContent = disease;
+            known_results()
+            enableDivChildren(); // Optionally re-enable the div after function call
+        }, 2000); // 2000 milliseconds = 2 seconds
+
+    }
+
+
+    function fill_disease1(){
+        document.getElementById("disease_type").value = "Hepatocellular Carcinoma";
+    }
+    function fill_disease2(){
+        document.getElementById("disease_type").value = "Cholangiocarcinoma";
+    }
+    let fullData_ct_kegg = [];
+    let fullData_ct_go = { BP: [], MF: [], CC: [] };
+    let fullData_tissue_kegg = [];
+    let fullData_tissue_go = { BP: [], MF: [], CC: [] };
+    //分析时禁止用户操作及加半透明遮罩层
+    const targetDiv = document.getElementById('forbid_click');
+    function known_results() {
+        let disease_type = document.getElementById('disease_type').value;
+        document.getElementById('show_disease').textContent = disease_type;
+
+        // 改变下载数据按钮的链接
+        document.getElementById('ct-KEGG-download').href = 'tool3_GO_KEGG_CSV_FORMAT/' + disease_type + '_ct_KEGG_enrich.csv';
+        document.getElementById('ct-GO-download').href = 'tool3_GO_KEGG_CSV_FORMAT/' + disease_type + '_ct_GO_enrich.csv';
+        document.getElementById('tissue-KEGG-download').href = 'tool3_GO_KEGG_CSV_FORMAT/' + disease_type + '_tissue_KEGG_enrich.csv';
+        document.getElementById('tissue-GO-download').href = 'tool3_GO_KEGG_CSV_FORMAT/' + disease_type + '_tissue_GO_enrich.csv';
+
+        // Fetch ct-kegg
+        fetch('tool3_GO_KEGG_enrich_results/' + disease_type + '_ct_KEGG_enrich.json')
+            .then(response => response.json())
+            .then(data => {
+                if (data && Array.isArray(data)) {
+                    fullData_ct_kegg = data; // Store the full data
+                    document.querySelector('#ct-KEGG-dot-plot-container').style.display = 'block';
+                    updateVisualization(fullData_ct_kegg, '#ct-KEGG-dot-plot', 'ct-KEGG-selector');
+                } else {
+                    console.error('Error: Invalid data format for ct-KEGG');
+                    document.querySelector('#ct-KEGG-dot-plot-container').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                document.querySelector('#ct-KEGG-dot-plot-container').style.display = 'none'; //查询失败时隐藏div
+            });
+
+        // Fetch ct-GO
+        fetch('tool3_GO_KEGG_enrich_results/' + disease_type + '_ct_GO_enrich.json')
+            .then(response => response.json())
+            .then(data => {
+                if (data && (data.BP || data.MF || data.CC)) {
+                    fullData_ct_go.BP = data.BP || [];
+                    fullData_ct_go.MF = data.MF || [];
+                    fullData_ct_go.CC = data.CC || [];
+                    document.querySelector('#ct-GO-bar-plot-container').style.display = 'block';
+                    updateFacetedBarChart(fullData_ct_go, '#ct-GO-bar-plot', 'ct-GO-selector');
+                } else {
+                    console.error('Error: Invalid data format for ct-GO');
+                    document.querySelector('#ct-GO-bar-plot-container').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                document.querySelector('#ct-GO-bar-plot-container').style.display = 'none'; //查询失败时隐藏div
+            });
+
+        // Fetch tissue-kegg
+        fetch('tool3_GO_KEGG_enrich_results/' + disease_type + '_tissue_KEGG_enrich.json')
+            .then(response => response.json())
+            .then(data => {
+                if (data && Array.isArray(data)) {
+                    fullData_tissue_kegg = data; // Store the full data
+                    document.querySelector('#tissue-KEGG-dot-plot-container').style.display = 'block';
+                    updateVisualization(fullData_tissue_kegg, '#tissue-KEGG-dot-plot', 'tissue-KEGG-selector');
+                } else {
+                    console.error('Error: Invalid data format for tissue-KEGG');
+                    document.querySelector('#tissue-KEGG-dot-plot-container').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                document.querySelector('#tissue-KEGG-dot-plot-container').style.display = 'none'; //查询失败时隐藏div
+            });
+
+        // Fetch tissue-GO
+        fetch('tool3_GO_KEGG_enrich_results/' + disease_type + '_tissue_GO_enrich.json')
+            .then(response => response.json())
+            .then(data => {
+                if (data && (data.BP || data.MF || data.CC)) {
+                    fullData_tissue_go.BP = data.BP || [];
+                    fullData_tissue_go.MF = data.MF || [];
+                    fullData_tissue_go.CC = data.CC || [];
+                    document.querySelector('#tissue-GO-bar-plot-container').style.display = 'block';
+                    updateFacetedBarChart(fullData_tissue_go, '#tissue-GO-bar-plot', 'tissue-GO-selector');
+                } else {
+                    console.error('Error: Invalid data format for tissue-GO');
+                    document.querySelector('#tissue-GO-bar-plot-container').style.display = 'none'; //查询失败时隐藏div
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                document.querySelector('#tissue-GO-bar-plot-container').style.display = 'none'; //查询失败时隐藏div
+            });
+    }
+
+    // 更新KEGG的dotplot
+    function updateVisualization(fullData, svg_id, selector_id) {
+        const numToShow = +document.getElementById(selector_id).value;
+        const filteredData = fullData.slice(0, numToShow); // Select the top N pathways
+        visualizeDotPlot(filteredData, svg_id);
+    }
+    // 更新GO的barplot
+    function updateFacetedBarChart(fullData, svg_id, selector_id) {
+        debugger
+        const selectorValue = +document.getElementById(selector_id).value;
+        let dataBP, dataMF, dataCC;
+        if (selectorValue === 20) {
+            dataBP = fullData.BP.slice(0, 10);
+            dataMF = fullData.MF.slice(0, 5);
+            dataCC = fullData.CC.slice(0, 5);
+        } else if (selectorValue === 25) {
+            dataBP = fullData.BP.slice(0, 13);
+            dataMF = fullData.MF.slice(0, 6);
+            dataCC = fullData.CC.slice(0, 6);
+        } else if (selectorValue === 35) {
+            dataBP = fullData.BP.slice(0, 21);
+            dataMF = fullData.MF.slice(0, 7);
+            dataCC = fullData.CC.slice(0, 7);
+        }
+        visualizeFacetedBarChart({ BP: dataBP, MF: dataMF, CC: dataCC }, svg_id);
+    }
+    // 为每个图的通路数量选择器分别添加监听器
+    // ct-kegg
+    document.getElementById('ct-KEGG-selector').addEventListener('change', () => {
+        console.log("Updating ct-KEGG-dot-plot");
+        updateVisualization(fullData_ct_kegg, '#ct-KEGG-dot-plot', 'ct-KEGG-selector');
+    });
+    // ct-GO
+    document.getElementById('ct-GO-selector').addEventListener('change', () => {
+        updateFacetedBarChart(fullData_ct_go, '#ct-GO-bar-plot', 'ct-GO-selector');
+    });
+    // tissue-kegg
+    document.getElementById('tissue-KEGG-selector').addEventListener('change', () => {
+        console.log("Updating tissue-KEGG-dot-plot");
+        updateVisualization(fullData_tissue_kegg, '#tissue-KEGG-dot-plot', 'tissue-KEGG-selector');
+    });
+    // ct-GO
+    document.getElementById('tissue-GO-selector').addEventListener('change', () => {
+        debugger
+        updateFacetedBarChart(fullData_tissue_go, '#tissue-GO-bar-plot', 'tissue-GO-selector');
+    });
+
+
+    function choose_exportCSV(selectorID, data){
+        const numToShow = +document.getElementById(selectorID).value;
+        const filteredData = data.slice(0, numToShow);
+        exportCSV(filteredData);
+    }
+
+    // Function to visualize the dot plot (KEGG)
+    function visualizeDotPlot(data, svg_id) {
+        const svg = d3.select(svg_id);
+        svg.selectAll("*").remove(); // 清除之前的图表
+
+        const width = +svg.attr("width");
+        const height = +svg.attr("height");
+        const margin = {top: 30, right: 150, bottom: 40, left: 250}; // 增加右边距为图例留出空间
+        const plotWidth = width - margin.left - margin.right;
+        const plotHeight = height - margin.top - margin.bottom;
+        // 添加白色背景
+        svg.append("rect")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("fill", "white");
+        const minGeneRatio = d3.min(data, d => parseFloat(d.GeneRatio));
+        const maxGeneRatio = d3.max(data, d => parseFloat(d.GeneRatio));
+
+        const x = d3.scaleLinear()
+            .domain([0.9 * minGeneRatio, maxGeneRatio]) // 缩小 X 轴范围
+            .range([0, plotWidth]);
+
+        const y = d3.scaleBand()
+            .domain(data.map(d => d.Description))
+            .range([0, plotHeight])
+            .padding(0.1);
+
+        const r = d3.scaleSqrt()
+            .domain([0, d3.max(data, d => d.Count)])
+            .range([2, 10]);
+
+        // 定义颜色渐变
+        const color = d3.scaleSequential()
+            .domain([d3.max(data, d => d.neg_log10_FDR), d3.min(data, d => d.neg_log10_FDR)]) // p值范围越大，颜色越接近蓝色
+            .interpolator(d3.interpolateRgb("#c14754","#fedfd7"));
+
+        const g = svg.append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // 添加 X 轴
+        g.append("g")
+            .attr("class", "x-axis")
+            .attr("transform", `translate(0,${plotHeight})`)
+            .call(d3.axisBottom(x))
+            .selectAll("text") // 选择所有 Y 轴标签
+            .style("font-size", "0.9rem");
+
+        // 添加 Y 轴
+        g.append("g")
+            .attr("class", "y-axis")
+            .call(d3.axisLeft(y))
+            .selectAll("text") // 选择所有 Y 轴标签
+            .style("font-size", "0.9rem")
+            .style("text-anchor", "end"); // 使文本与轴对齐
+
+        // 添加 X 轴标题并居中
+        svg.append("text")
+            .attr("class", "x-axis-label")
+            .attr("text-anchor", "middle")
+            .attr("x", margin.left + plotWidth / 2)
+            .attr("y", height)
+            .style("font-size", "16px")
+            .text("Gene Ratio");
+
+        /* 添加 Y 轴标题并居中
+        svg.append("text")
+            .attr("class", "y-axis-label")
+            .attr("text-anchor", "middle")
+            .attr("transform", `rotate(-90)`)
+            .attr("x", -(margin.top + plotHeight / 2))
+            .attr("y", margin.left / 2 - 10)
+            .style("font-size", "16px")
+            .text("Pathway Description");
+            */
+        // 绘制圆点
+        g.selectAll(".dot")
+            .data(data)
+            .enter().append("circle")
+            .attr("class", "dot")
+            .attr("cx", d => x(parseFloat(d.GeneRatio)))
+            .attr("cy", d => y(d.Description) + y.bandwidth() / 2)
+            .attr("r", d => r(d.Count))
+            .style("fill", d => color(d.neg_log10_FDR))
+            .append("title")
+            .text(d => `${d.Description}\nGeneRatio: ${d.GeneRatio}\nCount: ${d.Count}\nneg_log10_FDR: ${d.neg_log10_FDR}`);
+
+        const countMin = d3.min(data, d => d.Count);
+        const countMax = d3.max(data, d => d.Count);
+        const countStep = (countMax - countMin) / 3;
+        const countValues = [
+            countMin,
+            Math.round(countMin + countStep),
+            Math.round(countMin + 2 * countStep),
+            countMax
+        ];
+
+        const legendSizeGroup = svg.append("g")
+            .attr("transform", `translate(${width - margin.right + 20}, ${margin.top + 60})`);
+
+        legendSizeGroup.append("text")
+            .attr("x", 0)
+            .attr("y", -10)
+            .style("font-size", "0.9rem")
+            .text("Count");
+
+        countValues.forEach((d, i) => {
+            const yPosition = i * 25;
+
+            legendSizeGroup.append("circle")
+                .attr("cx", 20)
+                .attr("cy", yPosition)
+                .attr("r", r(d))
+                .style("fill", "#6b7c8a");
+
+            legendSizeGroup.append("text")
+                .attr("x", 40)
+                .attr("y", yPosition + 4)
+                .style("font-size", "0.9rem")
+                .text(d);
+        });
+
+        // 添加颜色渐变图例
+        const legendWidth = 100;
+        const legendHeight = 20;
+
+        // 渐变定义
+        const defs = svg.append("defs");
+        const linearGradient = defs.append("linearGradient")
+            .attr("id", "dotPlotGradient")
+            .attr("x1", "0%")
+            .attr("x2", "100%")
+            .attr("y1", "0%")
+            .attr("y2", "0%");
+
+        linearGradient.append("stop")
+            .attr("offset", "0%")
+            .attr("stop-color", "#fedfd7"); // 渐变起点
+        linearGradient.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#c14754"); // 渐变终点
+
+        // 添加渐变色条
+        svg.append("rect")
+            .attr("x", width - margin.right + 20)
+            .attr("y", margin.top)
+            .attr("width", legendWidth)
+            .attr("height", legendHeight)
+            .style("fill", "url(#dotPlotGradient)");
+
+        // 添加图例说明文字
+        svg.append("text")
+            .attr("x", width - margin.right + 20)
+            .attr("y", margin.top - 5)
+            .style("font-size", "12px")
+            .text("-Log10 (FDR)");
+
+        svg.append("text")
+            .attr("x", width - margin.right + 20)
+            .attr("y", margin.top + legendHeight + 15)
+            .style("font-size", "12px")
+            .text(d3.min(data, d => d.neg_log10_FDR).toFixed(2));
+
+        svg.append("text")
+            .attr("x", width - margin.right + 20 + legendWidth)
+            .attr("y", margin.top + legendHeight + 15)
+            .style("font-size", "12px")
+            .attr("text-anchor", "end")
+            .text(d3.max(data, d => d.neg_log10_FDR).toFixed(2));
+    }
+    // Function to visualize the bar plot (GO)
+    function visualizeFacetedBarChart(dataGroups, svg_id) {
+        const svg = d3.select(svg_id);
+        svg.selectAll("*").remove(); // 清除之前的图表
+
+        const width = +svg.attr("width");
+        const margin = {top: 30, right: 150, bottom: 40, left: 300};
+        const barHeight = 13; // 每个条形的高度
+        const barPadding = 2; // 条形间距
+
+        // 动态计算每个小图的高度
+        const plotHeights = Object.keys(dataGroups).map(group =>
+            (barHeight + barPadding) * dataGroups[group].length + 40 // 40为顶部和底部的额外间距
+        );
+
+        // 总高度为所有小图高度的总和再加上margin
+        const totalHeight = plotHeights.reduce((acc, h) => acc + h, 0) + margin.top + margin.bottom;
+        svg.attr("height", totalHeight);
+
+        // 合并所有数据组
+        const allData = [].concat(dataGroups.BP, dataGroups.MF, dataGroups.CC);
+
+        const x = d3.scaleLinear()
+            .domain([0, d3.max(allData, d => parseFloat(d.GeneRatio))])
+            .range([0, width - margin.left - margin.right]);
+
+        // 修改颜色渐变为 #e8b48a, #50bcc3, #5481aa
+        const color = d3.scaleSequential()
+            .domain([d3.max(allData, d => d.neg_log10_FDR), d3.min(allData, d => d.neg_log10_FDR)])
+            .interpolator(d3.interpolateRgb("#e8b48a", "#5481aa"));
+
+        const groups = Object.keys(dataGroups);
+        let currentYOffset = margin.top; // 当前的 Y 轴偏移
+        // 添加白色背景
+        svg.append("rect")
+            .attr("width", width)
+            .attr("height", totalHeight)
+            .attr("fill", "white");
+
+        groups.forEach((group, i) => {
+            const groupData = dataGroups[group];
+            const groupHeight = (barHeight + barPadding) * groupData.length;
+
+            const y = d3.scaleBand()
+                .domain(groupData.map(d => d.Description))
+                .range([0, groupHeight])
+                .padding(0.1);
+
+            const g = svg.append("g")
+                .attr("transform", `translate(${margin.left},${currentYOffset})`);
+
+            // 添加 X 轴，只显示前两位小数
+            g.append("g")
+                .attr("class", "x-axis")
+                .attr("transform", `translate(0,${groupHeight})`)
+                .call(d3.axisBottom(x).tickFormat(d3.format(".2f"))) // 格式化为保留两位小数
+                .selectAll("text")
+                .style("font-size", "0.9rem");
+
+            // 添加 Y 轴
+            g.append("g")
+                .attr("class", "y-axis")
+                .call(d3.axisLeft(y))
+                .selectAll("text")
+                .style("font-size", "0.9rem")
+                .style("text-anchor", "end")
+                .call(wrapText, margin.left - 10);  // 调用wrapText函数进行折行
+
+            // 添加标题
+            g.append("text")
+                .attr("x", (width - margin.left - margin.right) / 2)
+                .attr("y", -10)
+                .attr("text-anchor", "middle")
+                .style("font-size", "16px")
+                .text(group);
+
+            // 绘制条形
+            g.selectAll(".bar")
+                .data(groupData)
+                .enter().append("rect")
+                .attr("class", "bar")
+                .attr("x", 0)
+                .attr("y", d => y(d.Description))
+                .attr("width", d => x(parseFloat(d.GeneRatio)))
+                .attr("height", barHeight)
+                .style("fill", d => color(d.neg_log10_FDR))
+                .append("title")
+                .text(d => `${d.Description}\nGeneRatio: ${d.GeneRatio}\nCount: ${d.Count}\nneg_log10_FDR: ${d.neg_log10_FDR}`);
+
+            currentYOffset += plotHeights[i]; // 更新偏移量
+        });
+
+        // 添加颜色渐变图例
+        const legendWidth = 100;
+        const legendHeight = 20;
+
+        // 渐变定义
+        const defs = svg.append("defs");
+        const linearGradient = defs.append("linearGradient")
+            .attr("id", "barChartGradien")
+            .attr("x1", "0%")
+            .attr("x2", "100%")
+            .attr("y1", "0%")
+            .attr("y2", "0%");
+
+        // 渐变颜色定义
+        linearGradient.append("stop")
+            .attr("offset", "0%")
+            .attr("stop-color", "#5481aa"); // 起点颜色
+
+
+        linearGradient.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#e8b48a"); // 终点颜色
+
+        // 添加渐变色条
+        svg.append("rect")
+            .attr("x", width - margin.right + 20)
+            .attr("y", margin.top)
+            .attr("width", legendWidth)
+            .attr("height", legendHeight)
+            .style("fill", "url(#barChartGradien)");
+
+        // 添加图例说明文字
+        svg.append("text")
+            .attr("x", width - margin.right + 20)
+            .attr("y", margin.top - 5)
+            .style("font-size", "12px")
+            .text("-Log10 (FDR)");
+
+        // 获取合并后的最大最小值
+        const minFDR = parseFloat(d3.min(allData, d => d.neg_log10_FDR)).toFixed(2);
+        const maxFDR = parseFloat(d3.max(allData, d => d.neg_log10_FDR)).toFixed(2);
+
+        // 检查是否成功获取到有效的最小值和最大值
+        if (!isNaN(minFDR) && !isNaN(maxFDR)) {
+            svg.append("text")
+                .attr("x", width - margin.right + 20)
+                .attr("y", margin.top + legendHeight + 15)
+                .style("font-size", "12px")
+                .text(minFDR);
+
+            svg.append("text")
+                .attr("x", width - margin.right + 20 + legendWidth)
+                .attr("y", margin.top + legendHeight + 15)
+                .style("font-size", "12px")
+                .attr("text-anchor", "end")
+                .text(maxFDR);
+        } else {
+            console.error("Error: Could not compute min or max for neg_log10_FDR");
+        }
+
+        // 文本折行函数
+        function wrapText(text, width) {
+            text.each(function() {
+                const text = d3.select(this),
+                    words = text.text().split(/\s+/).reverse(),
+                    lineHeight = 1.1, // 行间距
+                    y = text.attr("y"),
+                    dy = parseFloat(text.attr("dy") || 0),
+                    x = text.attr("x") || 0;
+
+                let word,
+                    line = [],
+                    lineNumber = 0,
+                    tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+
+                while (word = words.pop()) {
+                    line.push(word);
+                    tspan.text(line.join(" "));
+                    if (tspan.node().getComputedTextLength() > width) {
+                        line.pop();
+                        tspan.text(line.join(" "));
+                        line = [word];
+                        tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                    }
+                }
+            });
+        }
+    }
+    // Function to export data as CSV
+    function exportCSV(data) {
+        const csvContent = "data:text/csv;charset=utf-8," +
+            ["Description,GeneRatio,BgRatio,Count,pvalue,neg_log10_FDR,neg_log10_FDR"]
+                .concat(data.map(d => `${d.Description},${d.GeneRatio},${d.BgRatio},${d.Count},${d.pvalue},${d.neg_log10_FDR},${d.neg_log10_FDR}`))
+                .join("\n");
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "enrichment_data.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    /*// Function to print the chart as PDF*/
+
+    function downloadPDF(svg) {
+        html2canvas(document.querySelector(svg)).then(canvas => {
+            const pdf = new jsPDF('landscape');
+            pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 10, 10, 280, 150);
+            pdf.save(svg+'.pdf');
+        });
+    }
+
+    // Function to download the Venn diagram as SVG
+    function downloadSVG(svg) {
+        const svgElement = document.querySelector(svg);
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svgElement);
+        const blob = new Blob([svgString], {type: "image/svg+xml"});
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = svg + ".svg";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(url);
+    }
+
+    // Function to download the Venn diagram as PNG
+    function downloadPNG(svg) {
+        const svgElement = document.querySelector(svg);
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svgElement);
+
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const img = new Image();
+
+        const svgData = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgString)));
+        img.src = svgData;
+
+        img.onload = function() {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+
+            const pngFile = canvas.toDataURL("image/png");
+
+            const link = document.createElement("a");
+            link.download = "kegg_enrichment.png";
+            link.href = pngFile;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+    }
+</script>
+
+</body>
+</html>

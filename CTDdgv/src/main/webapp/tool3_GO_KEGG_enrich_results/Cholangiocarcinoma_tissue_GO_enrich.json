@@ -1,0 +1,76 @@
+{
+  "CC": [
+    {
+      "ONTOLOGY": ["CC"],
+      "ID": ["GO:0140092"],
+      "Description": ["bBAF complex"],
+      "GeneRatio": [0.125],
+      "BgRatio": ["10/19869"],
+      "pvalue": [0.004],
+      "neg_log10_FDR": [1.4789],
+      "qvalue": [0.0147],
+      "geneID": ["ARID1A"],
+      "Count": [1]
+    },
+    {
+      "ONTOLOGY": ["CC"],
+      "ID": ["GO:0036464"],
+      "Description": ["cytoplasmic ribonucleoprotein granule"],
+      "GeneRatio": [0.25],
+      "BgRatio": ["248/19869"],
+      "pvalue": [0.0041],
+      "neg_log10_FDR": [1.4789],
+      "qvalue": [0.0147],
+      "geneID": ["DDX6/ZC3H12B"],
+      "Count": [2]
+    },
+    {
+      "ONTOLOGY": ["CC"],
+      "ID": ["GO:0035770"],
+      "Description": ["ribonucleoprotein granule"],
+      "GeneRatio": [0.25],
+      "BgRatio": ["265/19869"],
+      "pvalue": [0.0047],
+      "neg_log10_FDR": [1.4789],
+      "qvalue": [0.0147],
+      "geneID": ["DDX6/ZC3H12B"],
+      "Count": [2]
+    },
+    {
+      "ONTOLOGY": ["CC"],
+      "ID": ["GO:0035060"],
+      "Description": ["brahma complex"],
+      "GeneRatio": [0.125],
+      "BgRatio": ["14/19869"],
+      "pvalue": [0.0056],
+      "neg_log10_FDR": [1.4789],
+      "qvalue": [0.0147],
+      "geneID": ["ARID1A"],
+      "Count": [1]
+    },
+    {
+      "ONTOLOGY": ["CC"],
+      "ID": ["GO:0071564"],
+      "Description": ["npBAF complex"],
+      "GeneRatio": [0.125],
+      "BgRatio": ["14/19869"],
+      "pvalue": [0.0056],
+      "neg_log10_FDR": [1.4789],
+      "qvalue": [0.0147],
+      "geneID": ["ARID1A"],
+      "Count": [1]
+    },
+    {
+      "ONTOLOGY": ["CC"],
+      "ID": ["GO:0071565"],
+      "Description": ["nBAF complex"],
+      "GeneRatio": [0.125],
+      "BgRatio": ["16/19869"],
+      "pvalue": [0.0064],
+      "neg_log10_FDR": [1.4789],
+      "qvalue": [0.0147],
+      "geneID": ["ARID1A"],
+      "Count": [1]
+    }
+  ]
+}
